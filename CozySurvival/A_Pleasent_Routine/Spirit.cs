@@ -64,25 +64,26 @@ namespace A_Pleasant_Routine
 
 			// TODO: Add your update logic here
 			var kstate = Keyboard.GetState();
+			bool sprint = kstate.IsKeyDown(Keys.LeftShift);
 
 			if (kstate.IsKeyDown(Keys.Up))
 			{
-				ballPosition.Y -= ballSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+				ballPosition.Y -= (ballSpeed * (sprint? 2 : 1)) * (float)gameTime.ElapsedGameTime.TotalSeconds;
 			}
 
 			if (kstate.IsKeyDown(Keys.Down))
 			{
-				ballPosition.Y += ballSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+				ballPosition.Y += ballSpeed * (sprint ? 2 : 1) * (float)gameTime.ElapsedGameTime.TotalSeconds;
 			}
 
 			if (kstate.IsKeyDown(Keys.Left))
 			{
-				ballPosition.X -= ballSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+				ballPosition.X -= ballSpeed * (sprint ? 2 : 1) * (float)gameTime.ElapsedGameTime.TotalSeconds;
 			}
 
 			if (kstate.IsKeyDown(Keys.Right))
 			{
-				ballPosition.X += ballSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+				ballPosition.X += ballSpeed * (sprint ? 2 : 1) * (float)gameTime.ElapsedGameTime.TotalSeconds;
 			}
 
 			base.Update(gameTime);
