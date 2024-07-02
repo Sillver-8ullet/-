@@ -8,7 +8,7 @@ namespace A_Pleasant_Routine
 		[STAThread]
 		static void Main()
 		{
-			using (var game = new Spirit())
+			using (var game = new RayScan())
 				game.Run();
 		}
 	}
